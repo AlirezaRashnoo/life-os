@@ -5,7 +5,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
@@ -14,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 import { useState } from "react";
 import { updateBookmark } from "@/actions/bookmarks";
-import { Edit } from "lucide-react";
+import { Pencil } from "lucide-react";
 
 export default function EditBookmarkDialog({
   bookmark,
@@ -30,41 +29,71 @@ export default function EditBookmarkDialog({
   const [url, setUrl] = useState(bookmark.url);
   const [description, setDescription] = useState(bookmark.description ?? "");
   const [open, setOpen] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   async function handleSave() {
-    await updateBookmark(bookmark.id, {
-      title,
-      url,
-      description,
-    });
+    setSaving(true);
+    await updateBookmark(bookmark.id, { title, url, description });
+    setSaving(false);
     setOpen(false);
   }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant="ghost" size="sm" className="cursor-pointer">
-          <Edit size={16} />
-        </Button>
-      </DialogTrigger>
+      <Button
+        variant="ghost"
+        size="sm"
+        className="h-7 w-7 p-0 text-text-tertiary hover:text-text-primary"
+        onClick={() => setOpen(true)}
+        aria-label="Edit bookmark"
+      >
+        <Pencil size={14} />
+      </Button>
 
-      <DialogContent>
+      <DialogContent className="sm:max-w-[480px]">
         <DialogHeader>
-          <DialogTitle>Edit Bookmark</DialogTitle>
+          <DialogTitle className="text-h3">Edit bookmark</DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-4">
-          <Input value={title} onChange={(e) => setTitle(e.target.value)} />
+        <div className="space-y-4 mt-2">
+          <div className="space-y-1.5">
+            <label className="text-caption uppercase tracking-wide text-text-tertiary">
+              Title
+            </label>
+            <Input value={title} onChange={(e) => setTitle(e.target.value)} />
+          </div>
 
-          <Input value={url} onChange={(e) => setUrl(e.target.value)} />
+          <div className="space-y-1.5">
+            <label className="text-caption uppercase tracking-wide text-text-tertiary">
+              URL
+            </label>
+            <Input
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              className="font-mono text-body-sm"
+            />
+          </div>
 
-          <Textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+          <div className="space-y-1.5">
+            <label className="text-caption uppercase tracking-wide text-text-tertiary">
+              Description
+            </label>
+            <Textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+        </div>
 
-          <Button onClick={handleSave} className="w-full">
-            Save
+        <div className="mt-6 flex justify-end gap-2">
+          <Button variant="ghost" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button
+            onClick={handleSave}
+            disabled={!title.trim() || !url.trim() || saving}
+          >
+            {saving ? "Saving..." : "Save changes"}
           </Button>
         </div>
       </DialogContent>

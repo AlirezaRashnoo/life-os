@@ -6,13 +6,13 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { createBookmark } from "@/actions/bookmarks";
 import { useRouter } from "next/navigation";
+import { Plus } from "lucide-react";
 
 import { useState } from "react";
 
@@ -21,55 +21,78 @@ export default function NewBookmarkDialog() {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
+  const [saving, setSaving] = useState(false);
   const router = useRouter();
 
   async function handleSubmit() {
-    await createBookmark({
-      title,
-      url,
-      description,
-    });
+    setSaving(true);
+    await createBookmark({ title, url, description });
 
     setTitle("");
     setUrl("");
     setDescription("");
+    setSaving(false);
     setOpen(false);
-
     router.refresh();
   }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button>+ Add Bookmark</Button>
-      </DialogTrigger>
+      <Button className="gap-1.5" onClick={() => setOpen(true)}>
+        <Plus size={16} />
+        Add bookmark
+      </Button>
 
-      <DialogContent>
+      <DialogContent className="sm:max-w-[480px]">
         <DialogHeader>
-          <DialogTitle>Add Bookmark</DialogTitle>
+          <DialogTitle className="text-h3">Add bookmark</DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-4">
-          <Input
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+        <div className="space-y-4 mt-2">
+          <div className="space-y-1.5">
+            <label className="text-caption uppercase tracking-wide text-text-tertiary">
+              Title
+            </label>
+            <Input
+              placeholder="Next.js docs"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
 
-          <Input
-            placeholder="URL"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-          />
+          <div className="space-y-1.5">
+            <label className="text-caption uppercase tracking-wide text-text-tertiary">
+              URL
+            </label>
+            <Input
+              placeholder="nextjs.org/docs"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              className="font-mono text-body-sm"
+            />
+          </div>
 
-          <Textarea
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+          <div className="space-y-1.5">
+            <label className="text-caption uppercase tracking-wide text-text-tertiary">
+              Description
+            </label>
+            <Textarea
+              placeholder="What is this for?"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+        </div>
 
-          <Button onClick={handleSubmit} className="w-full">
-            Save Bookmark
+        <div className="mt-6 flex justify-end gap-2">
+          <Button variant="ghost" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button
+            onClick={handleSubmit}
+            disabled={!title.trim() || !url.trim() || saving}
+          >
+            {saving ? "Saving..." : "Save bookmark"}
           </Button>
         </div>
       </DialogContent>
