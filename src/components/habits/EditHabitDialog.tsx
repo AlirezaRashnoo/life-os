@@ -1,0 +1,107 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+
+import { updateHabit } from "@/actions/habits";
+
+type Props = {
+  open: boolean;
+
+  onOpenChange: (open: boolean) => void;
+
+  habit?: {
+    id: string;
+    title: string;
+    description: string | null;
+    // color: string | null;
+    // icon: string | null;
+  };
+};
+
+export default function EditHabitDialog({ open, onOpenChange, habit }: Props) {
+  const [title, setTitle] = useState("");
+
+  const [description, setDescription] = useState("");
+
+  // const [color, setColor] = useState("");
+
+  // const [icon, setIcon] = useState("");
+
+  useEffect(() => {
+    if (!habit) return;
+
+    setTitle(habit.title);
+
+    setDescription(habit.description ?? "");
+
+    // setColor(habit.color ?? "");
+
+    // setIcon(habit.icon ?? "");
+  }, [habit]);
+
+  async function handleSave() {
+    if (!habit) return;
+
+    await updateHabit(habit.id, {
+      title,
+      description,
+      // color,
+      // icon,
+    });
+
+    onOpenChange(false);
+  }
+
+  if (!habit) return null;
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit Habit</DialogTitle>
+        </DialogHeader>
+
+        <div className="space-y-4">
+          <Input
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+
+          <Textarea
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+
+          {/* <Input
+            placeholder="Icon 🔥"
+            value={icon}
+            onChange={(e) => setIcon(e.target.value)}
+          />
+
+          <Input
+            placeholder="Color (#ff0000)"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
+          /> */}
+
+          <Button className="w-full" onClick={handleSave}>
+            Save Changes
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
