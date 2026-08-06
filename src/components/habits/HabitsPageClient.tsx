@@ -58,7 +58,6 @@ export default function HabitsPageClient({ habits }: Props) {
         <EmptyState
           title="No habit yet"
           description="Create your first habit and try to do that"
-          action={<NewHabitDialog open={open} onOpenChange={setOpen} />}
         />
       ) : (
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -67,6 +66,8 @@ export default function HabitsPageClient({ habits }: Props) {
           ))}
         </div>
       )}
+
+      <NewHabitDialog open={open} onOpenChange={setOpen} />
 
       <EditHabitDialog
         open={editOpen}
