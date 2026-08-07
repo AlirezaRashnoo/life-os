@@ -39,10 +39,10 @@ export default function HabitsPageClient({ habits }: Props) {
     <>
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-h1 text-text-primary">Habits</h1>
+          <h1 className="text-h1 text-text-primary">عادت ها</h1>
 
           <p className="mt-1 text-body text-text-secondary">
-            Build better habits, one day at a time.
+            عادت‌های بهتر بسازید، یک روز در هر زمان.
           </p>
         </div>
 
@@ -50,14 +50,14 @@ export default function HabitsPageClient({ habits }: Props) {
           onClick={() => setOpen(true)}
           className="rounded-md bg-primary px-4 py-2 text-white"
         >
-          + New Habit
+          + عادت جدید
         </button>
       </div>
 
       {habits.length === 0 ? (
         <EmptyState
-          title="No habit yet"
-          description="Create your first habit and try to do that"
+          title="هنوز عادتی ندارید"
+          description="اولین عادت خود را بسازید و شروع کنید"
         />
       ) : (
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">

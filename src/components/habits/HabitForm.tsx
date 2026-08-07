@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { habitIcons, HabitIconName } from "@/lib/habit-icons";
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,19 +11,15 @@ type Props = {
   onSave: (data: {
     title: string;
     description?: string;
-    // color?: string;
-    // icon?: string;
+    icon?: string;
   }) => void;
 };
 
 export default function HabitForm({ onSave }: Props) {
   const [title, setTitle] = useState("");
-
   const [description, setDescription] = useState("");
 
-  // const [icon, setIcon] = useState("");
-
-  // const [color, setColor] = useState("");
+  const [icon, setIcon] = useState<HabitIconName>("CheckCircle");
 
   function handleSave() {
     if (!title.trim()) return;
@@ -30,44 +27,68 @@ export default function HabitForm({ onSave }: Props) {
     onSave({
       title,
       description,
-      // icon,
-      // color,
+      icon,
     });
 
     setTitle("");
     setDescription("");
-    // setIcon("");
-    // setColor("");
+    setIcon("CheckCircle");
   }
 
   return (
     <div className="space-y-4">
       <Input
-        placeholder="Habit title..."
+        placeholder="عنوان عادت..."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
 
       <Textarea
-        placeholder="Description..."
+        placeholder="توضیحات..."
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      {/* <Input
-        placeholder="Icon (🔥, 📚, 🏃)"
-        value={icon}
-        onChange={(e) => setIcon(e.target.value)}
-      />
+      <div className="space-y-2">
+        <p className="text-sm text-muted-foreground">انتخاب آیکن</p>
 
-      <Input
-        placeholder="Color (#22c55e)"
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-      /> */}
+        <div
+          className="
+          grid
+          grid-cols-6
+          gap-2
+          "
+        >
+          {Object.entries(habitIcons).map(([name, Icon]) => (
+            <button
+              key={name}
+              type="button"
+              onClick={() => setIcon(name as HabitIconName)}
+              className={`
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    rounded-lg
+                    border
+                    transition
+
+                    ${
+                      icon === name
+                        ? "border-primary bg-primary/10 text-primary"
+                        : "border-border text-muted-foreground hover:bg-accent"
+                    }
+                  `}
+            >
+              <Icon size={20} />
+            </button>
+          ))}
+        </div>
+      </div>
 
       <Button className="w-full" onClick={handleSave}>
-        Create Habit
+        ایجاد عادت
       </Button>
     </div>
   );

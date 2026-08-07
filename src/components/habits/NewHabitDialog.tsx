@@ -24,11 +24,7 @@ export default function NewHabitDialog({ open, onOpenChange }: Props) {
     // color?: string;
     // icon?: string;
   }) {
-    console.log("CREATE DATA:", data);
-
     await createHabit(data);
-
-    console.log("CREATED");
 
     onOpenChange(false);
   }
@@ -37,7 +33,7 @@ export default function NewHabitDialog({ open, onOpenChange }: Props) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Create Habit</DialogTitle>
+          <DialogTitle>ایجاد عادت</DialogTitle>
         </DialogHeader>
 
         <HabitForm onSave={handleCreate} />

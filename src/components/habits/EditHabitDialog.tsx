@@ -7,6 +7,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogFooter,
 } from "@/components/ui/dialog";
 
 import { Input } from "@/components/ui/input";
@@ -14,40 +15,31 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 import { updateHabit } from "@/actions/habits";
+import { habitIcons, HabitIconName } from "@/lib/habit-icons";
 
 type Props = {
   open: boolean;
-
   onOpenChange: (open: boolean) => void;
 
   habit?: {
     id: string;
     title: string;
     description: string | null;
-    // color: string | null;
-    // icon: string | null;
+    icon: string | null;
   };
 };
 
 export default function EditHabitDialog({ open, onOpenChange, habit }: Props) {
   const [title, setTitle] = useState("");
-
   const [description, setDescription] = useState("");
-
-  // const [color, setColor] = useState("");
-
-  // const [icon, setIcon] = useState("");
+  const [icon, setIcon] = useState<HabitIconName>("CheckCircle");
 
   useEffect(() => {
     if (!habit) return;
 
     setTitle(habit.title);
-
     setDescription(habit.description ?? "");
-
-    // setColor(habit.color ?? "");
-
-    // setIcon(habit.icon ?? "");
+    setIcon((habit.icon as HabitIconName) ?? "CheckCircle");
   }, [habit]);
 
   async function handleSave() {
@@ -56,8 +48,7 @@ export default function EditHabitDialog({ open, onOpenChange, habit }: Props) {
     await updateHabit(habit.id, {
       title,
       description,
-      // color,
-      // icon,
+      icon,
     });
 
     onOpenChange(false);
@@ -69,37 +60,65 @@ export default function EditHabitDialog({ open, onOpenChange, habit }: Props) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Edit Habit</DialogTitle>
+          <DialogTitle>ویرایش عادت</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
           <Input
-            placeholder="Title"
+            placeholder="عنوان عادت"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
 
           <Textarea
-            placeholder="Description"
+            placeholder="توضیحات"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
 
-          {/* <Input
-            placeholder="Icon 🔥"
-            value={icon}
-            onChange={(e) => setIcon(e.target.value)}
-          />
+          <div className="space-y-2">
+            <p className="text-sm text-muted-foreground">انتخاب آیکن</p>
 
-          <Input
-            placeholder="Color (#ff0000)"
-            value={color}
-            onChange={(e) => setColor(e.target.value)}
-          /> */}
+            <div
+              className="
+              grid
+              grid-cols-6
+              gap-2
+            "
+            >
+              {Object.entries(habitIcons).map(([name, Icon]) => (
+                <button
+                  key={name}
+                  type="button"
+                  onClick={() => setIcon(name as HabitIconName)}
+                  className={`
+                      flex
+                      h-10
+                      w-10
+                      items-center
+                      justify-center
+                      rounded-lg
+                      border
+                      transition
 
-          <Button className="w-full" onClick={handleSave}>
-            Save Changes
-          </Button>
+                      ${
+                        icon === name
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border text-muted-foreground hover:bg-accent"
+                      }
+                    `}
+                >
+                  <Icon className="h-5 w-5" />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button className="w-full" onClick={handleSave}>
+              ذخیره تغییرات
+            </Button>
+          </DialogFooter>
         </div>
       </DialogContent>
     </Dialog>

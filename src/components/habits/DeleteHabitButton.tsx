@@ -22,7 +22,7 @@ export default function DeleteHabitButton({ habitId }: Props) {
       disabled={pending}
       className="rounded-md bg-red-600 px-3 py-2 text-sm text-white disabled:opacity-50"
     >
-      {pending ? "Deleting..." : "Delete"}
+      {pending ? "در حال حذف..." : "حذف"}
     </button>
   );
 }
