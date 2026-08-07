@@ -82,7 +82,7 @@ export default function TaskCard({ task }: { task: Task }) {
 
       rounded-xl
 
-      bg-surface-1
+      bg-card
 
       p-4
 
