@@ -1,91 +1,117 @@
-import { Home, Notebook, Calendar, Bookmark, Settings } from "lucide-react";
+"use client";
+
+import {
+  Home,
+  NotebookText,
+  Calendar,
+  Bookmark,
+  ListChecks,
+  Settings,
+  Bot,
+  CircleCheck,
+} from "lucide-react";
+
+import Link from "next/link";
 
 const navigation = [
   {
-    label: "Dashboard",
+    label: "داشبورد",
+    href: "/",
     icon: Home,
   },
   {
-    label: "Notes",
-    icon: Notebook,
+    label: "یادداشت‌ها",
+    href: "/notes",
+    icon: NotebookText,
   },
   {
-    label: "Calendar",
+    label: "تقویم",
+    href: "/calendar",
     icon: Calendar,
   },
   {
-    label: "Bookmarks",
+    label: "نشانک‌ها",
+    href: "/bookmarks",
     icon: Bookmark,
+  },
+  {
+    label: "عادت‌ها",
+    href: "/habits",
+    icon: CircleCheck,
+  },
+  {
+    label: "وظایف",
+    href: "/tasks",
+    icon: ListChecks,
+  },
+  {
+    label: "دستیار هوشمند",
+    href: "/ai-assistant",
+    icon: Bot,
+  },
+  {
+    label: "تنظیمات",
+    href: "/settings",
+    icon: Settings,
   },
 ];
 
 export default function Sidebar() {
   return (
     <aside
+      dir="rtl"
       className="
-        fixed
-        left-0
-        top-0
-        h-screen
-        w-60
-        border-r
-        border-border
-        bg-sidebar
-        px-4
-        py-6
+      fixed
+      right-0
+      top-0
+      h-screen
+      w-60
+      bg-sidebar
+      border-l
+      border-border
+      p-4
+      flex
+      flex-col
       "
     >
-      <div className="mb-8">
-        <h1 className="text-lg font-semibold">HomeOS</h1>
-      </div>
+      <h1
+        className="
+        text-lg
+        font-semibold
+        mb-8
+        px-3
+        "
+      >
+        HomeOS
+      </h1>
 
       <nav className="space-y-1">
         {navigation.map((item) => {
           const Icon = item.icon;
 
           return (
-            <button
-              key={item.label}
+            <Link
+              key={item.href}
+              href={item.href}
               className="
-                flex
-                w-full
-                items-center
-                gap-3
-                rounded-md
-                px-3
-                py-2
-                text-sm
-                text-muted-foreground
-                hover:bg-accent
-                hover:text-foreground
+              flex
+              items-center
+              gap-3
+              px-3
+              py-2
+              rounded-md
+              text-muted-foreground
+              hover:bg-accent
+              hover:text-foreground
               "
             >
               <Icon size={18} />
+
               {item.label}
-            </button>
+            </Link>
           );
         })}
       </nav>
-
-      <div className="absolute bottom-6 left-4 right-4">
-        <button
-          className="
-            flex
-            w-full
-            items-center
-            gap-3
-            rounded-md
-            px-3
-            py-2
-            text-sm
-            text-muted-foreground
-            hover:bg-accent
-          "
-        >
-          <Settings size={18} />
-          Settings
-        </button>
-      </div>
     </aside>
   );
 }
