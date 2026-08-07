@@ -87,6 +87,7 @@ model Task {
   description String?
 
   completed   Boolean  @default(false)
+  priority    TaskPriority @default(MEDIUM)
   dueDate     DateTime?
 
   createdAt   DateTime @default(now())
