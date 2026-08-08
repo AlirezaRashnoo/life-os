@@ -41,7 +41,7 @@ export default function EditNoteDialog({
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Edit note</DialogTitle>
+          <DialogTitle>ویرایش یادداشت</DialogTitle>
         </DialogHeader>
 
         <NoteEditor

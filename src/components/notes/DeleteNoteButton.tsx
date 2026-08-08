@@ -18,7 +18,7 @@ export default function DeleteNoteButton({ noteId }: { noteId: string }) {
       disabled={pending}
       className="text-sm text-red-500"
     >
-      {pending ? "Deleting..." : "Delete"}
+      {pending ? "حذف..." : "حذف"}
     </button>
   );
 }

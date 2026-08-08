@@ -28,13 +28,13 @@ export default function NewNoteDialog() {
       <DialogTrigger asChild>
         <Button>
           <Plus className="mr-2 h-4 w-4" />
-          New Note
+          یادداشت جدید
         </Button>
       </DialogTrigger>
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Create new note</DialogTitle>
+          <DialogTitle>ایجاد یادداشت جدید</DialogTitle>
         </DialogHeader>
 
         <NoteEditor onSave={handleSave} />

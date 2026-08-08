@@ -30,7 +30,7 @@ export default function NoteEditor({
   return (
     <div className="space-y-4">
       <Input
-        placeholder="Note title..."
+        placeholder="نام یادداشت..."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -44,11 +44,11 @@ export default function NoteEditor({
 
       <div className="flex justify-end gap-2">
         <Button variant="secondary" type="button">
-          Cancel
+          لغو
         </Button>
 
         <Button type="button" onClick={handleSave}>
-          Save note
+          ذخیره
         </Button>
       </div>
     </div>

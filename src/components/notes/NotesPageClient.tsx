@@ -29,10 +29,10 @@ export default function NotesPageClient({ notes }: { notes: Note[] }) {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-h1 text-text-primary">Notes</h1>
+          <h1 className="text-h1 text-text-primary">یادداشت ها</h1>
 
           <p className="mt-1 text-body text-text-secondary">
-            Capture ideas and keep your thoughts organized.
+            ایده‌ها را ثبت کنید و افکارتان را منظم نگه دارید.
           </p>
         </div>
 
@@ -40,23 +40,19 @@ export default function NotesPageClient({ notes }: { notes: Note[] }) {
       </div>
 
       <Input
-        placeholder="Search notes..."
+        placeholder="جستجو یادداشت..."
         className="max-w-md"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
 
       <section className="space-y-4">
-        <h2 className="text-h2">All Notes</h2>
+        <h2 className="text-h2">همه یادداشت ها</h2>
 
         {filteredNotes.length === 0 ? (
           <EmptyState
             title={search ? "No matching notes" : "No notes yet"}
-            description={
-              search
-                ? "Try another search."
-                : "Create your first note and stay focused."
-            }
+            description={search ? "Try another search." : "ایجاد اولین یادداشت"}
             action={!search ? <NewNoteDialog /> : undefined}
           />
         ) : (
