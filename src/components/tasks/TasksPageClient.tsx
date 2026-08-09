@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Task } from "@prisma/client";
+import { ListTodo, Clock, CheckCircle2 } from "lucide-react";
 
 import TaskCard from "./TaskCard";
 import TaskSearch from "./TaskSearch";
@@ -15,8 +16,10 @@ export default function TasksPageClient({ tasks }: { tasks: Task[] }) {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<TaskFilter>("ALL");
   const [sort, setSort] = useState<SortType>("NEWEST");
+
   const filteredTasks = useMemo(() => {
     let result = [...tasks];
+
     if (search.trim()) {
       const q = search.toLowerCase();
       result = result.filter(
@@ -39,6 +42,7 @@ export default function TasksPageClient({ tasks }: { tasks: Task[] }) {
         result = result.filter((task) => task.priority === filter);
         break;
     }
+
     switch (sort) {
       case "NEWEST":
         result.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
@@ -54,195 +58,96 @@ export default function TasksPageClient({ tasks }: { tasks: Task[] }) {
         );
         break;
       case "PRIORITY":
-        const priorityWeight = {
-          HIGH: 3,
-          MEDIUM: 2,
-          LOW: 1,
-        };
+        const priorityWeight = { HIGH: 3, MEDIUM: 2, LOW: 1 };
         result.sort(
           (a, b) => priorityWeight[b.priority] - priorityWeight[a.priority],
         );
         break;
     }
+
     return result;
   }, [tasks, search, filter, sort]);
+
   const totalTasks = filteredTasks.length;
   const completedTasks = filteredTasks.filter((task) => task.completed).length;
   const pendingTasks = totalTasks - completedTasks;
-  return (
-    <div
-      className="
-      space-y-6
-      "
-    >
-      {/* HEADER */}
-      <div
-        className="
-        flex
-        items-center
-        justify-between
-        "
-      >
-        <div>
-          <h1
-            className="
-            text-h1
-            text-text-primary
-            "
-          >
-            وظیفه ها
-          </h1>
 
-          <p
-            className="
-            text-body
-            text-text-secondary
-            mt-1
-            "
-          >
-            کارهای خود را مدیریت کنید و متمرکز بمانید.
-          </p>
+  return (
+    <div className="space-y-6">
+      {/* HEADER */}
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary">
+            <ListTodo className="h-5 w-5" />
+          </div>
+
+          <div>
+            <h1 className="text-h1 text-foreground">وظیفه‌ها</h1>
+            <p className="mt-0.5 text-body-sm text-muted-foreground">
+              کارهای خود را مدیریت کنید و متمرکز بمانید.
+            </p>
+          </div>
         </div>
 
         <NewTaskDialog />
       </div>
 
       {/* STATS */}
-
-      <div
-        className="
-        grid
-        grid-cols-3
-        gap-4
-        "
-      >
-        <div
-          className="
-          rounded-xl
-          border
-          border-border
-          bg-card
-          p-5
-          "
-        >
-          <p
-            className="
-            text-caption
-            text-text-secondary
-            "
-          >
-            تعداد کل
-          </p>
-          <p
-            className="
-            mt-2
-            text-h2
-            text-text-primary
-            "
-          >
-            {totalTasks}
-          </p>
-        </div>
-        <div
-          className="
-          rounded-xl
-          border
-          border-border
-          bg-card
-          p-5
-          "
-        >
-          <p
-            className="
-            text-caption
-            text-text-secondary
-            "
-          >
-            در انتظار
-          </p>
-
-          <p
-            className="
-            mt-2
-            text-h2
-            text-warning-500
-            "
-          >
-            {pendingTasks}
-          </p>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md hover:shadow-black/5">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <ListTodo className="h-5 w-5" />
+          </div>
+          <div>
+            <p className="text-caption text-muted-foreground">تعداد کل</p>
+            <p className="mt-0.5 text-h2 text-foreground">{totalTasks}</p>
+          </div>
         </div>
 
-        <div
-          className="
-          rounded-xl
-          border
-          border-border
-          bg-card
-          p-5
-          "
-        >
-          <p
-            className="
-            text-caption
-            text-text-secondary
-            "
-          >
-            انجام شده
-          </p>
+        <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md hover:shadow-black/5">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-warning/10 text-warning">
+            <Clock className="h-5 w-5" />
+          </div>
+          <div>
+            <p className="text-caption text-muted-foreground">در انتظار</p>
+            <p className="mt-0.5 text-h2 text-foreground">{pendingTasks}</p>
+          </div>
+        </div>
 
-          <p
-            className="
-            mt-2
-            text-h2
-            text-success-500
-            "
-          >
-            {completedTasks}
-          </p>
+        <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md hover:shadow-black/5">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-success/10 text-success">
+            <CheckCircle2 className="h-5 w-5" />
+          </div>
+          <div>
+            <p className="text-caption text-muted-foreground">انجام شده</p>
+            <p className="mt-0.5 text-h2 text-foreground">{completedTasks}</p>
+          </div>
         </div>
       </div>
-      {/* SEARCH + FILTER + SORT */}
-      <div
-        className="
-        flex
-        items-center
-        justify-between
-        gap-4
-        flex-wrap
-        "
-      >
-        <TaskSearch value={search} onChange={setSearch} />
-        <div
-          className="
-flex
-items-center
-gap-2
-"
-        >
-          <TaskFilters value={filter} onChange={setFilter} />
 
+      {/* SEARCH + FILTER + SORT */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-card p-3">
+        <TaskSearch value={search} onChange={setSearch} />
+
+        <div className="flex items-center gap-2">
+          <TaskFilters value={filter} onChange={setFilter} />
           <TaskSort value={sort} onChange={setSort} />
         </div>
       </div>
+
       {/* LIST */}
       {filteredTasks.length === 0 ? (
         <EmptyState
-          title={search ? "No matching tasks" : "No tasks yet"}
+          title={search ? "نتیجه‌ای پیدا نشد" : "هنوز وظیفه‌ای ثبت نشده"}
           description={
             search
-              ? "Try another keyword."
-              : "Create your first task and stay focused."
+              ? "کلیدواژهٔ دیگری را امتحان کنید."
+              : "اولین وظیفهٔ خود را بسازید و متمرکز بمانید."
           }
           action={<NewTaskDialog />}
         />
       ) : (
-        <div
-          className="
-            grid
-            grid-cols-3
-            gap-3
-            "
-        >
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredTasks.map((task) => (
             <TaskCard key={task.id} task={task} />
           ))}

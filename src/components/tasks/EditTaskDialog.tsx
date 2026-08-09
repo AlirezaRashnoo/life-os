@@ -10,10 +10,8 @@ import {
 
 import { Pencil } from "lucide-react";
 import { useState } from "react";
-
 import TaskForm from "./TaskForm";
 import { updateTask } from "@/actions/tasks";
-
 import { Task, TaskPriority } from "@prisma/client";
 
 export default function EditTaskDialog({ task }: { task: Task }) {
