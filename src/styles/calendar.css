@@ -1,0 +1,224 @@
+/* 
+.homeos-calendar {
+  font-family: var(--font-inter);
+  color: var(--text-primary);
+}
+
+
+.homeos-calendar .fc-toolbar {
+  margin-bottom: 24px;
+}
+
+.homeos-calendar .fc-toolbar-title {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+
+.homeos-calendar .fc-button {
+  height: 36px;
+  border-radius: 10px !important;
+  border: 1px solid var(--border-default) !important;
+
+  background: var(--surface-1) !important;
+  color: var(--text-primary) !important;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  padding: 0 12px;
+
+  box-shadow: none !important;
+}
+
+.homeos-calendar .fc-button:hover {
+  background: var(--surface-hover) !important;
+}
+
+.homeos-calendar .fc-button-primary:not(:disabled).fc-button-active {
+  background: var(--primary-500) !important;
+  color: white !important;
+  border-color: var(--primary-500) !important;
+}
+
+
+.homeos-calendar .fc-scrollgrid {
+  border: 1px solid var(--border-default);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+
+.homeos-calendar .fc-scrollgrid td,
+.homeos-calendar .fc-scrollgrid th {
+  border-color: var(--border-subtle);
+}
+
+
+.homeos-calendar .fc-col-header-cell {
+  background: var(--bg-inset);
+}
+
+.homeos-calendar .fc-col-header-cell-cushion {
+  padding: 12px;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  color: var(--text-tertiary);
+
+  text-transform: uppercase;
+}
+
+
+.homeos-calendar .fc-daygrid-day-number {
+  padding: 8px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  color: var(--text-secondary);
+}
+
+
+.homeos-calendar .fc-day-today {
+  background: var(--primary-50) !important;
+}
+
+.homeos-calendar .fc-day-today .fc-daygrid-day-number {
+  color: var(--primary-600);
+}
+
+
+.homeos-calendar .fc-event {
+  background: var(--primary-500);
+  border: none;
+
+  border-radius: 6px;
+
+  padding: 2px 6px;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+.homeos-calendar .fc-daygrid-more-link {
+  color: var(--primary-600);
+
+  font-size: 12px;
+  font-weight: 500;
+} */
+
+/* HomeOS Calendar */
+
+.homeos-calendar {
+  font-family: var(--font-sans);
+  color: var(--foreground);
+}
+
+/* Calendar surface */
+
+.homeos-calendar .fc-scrollgrid {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.homeos-calendar .fc-theme-standard td,
+.homeos-calendar .fc-theme-standard th {
+  border-color: var(--border);
+}
+
+/* Week header */
+
+.homeos-calendar .fc-col-header {
+  background: var(--muted);
+}
+
+.homeos-calendar .fc-col-header-cell {
+  padding: 4px 0;
+}
+
+.fc-jalali-weekday {
+  display: block;
+  padding: 10px 0;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+/* Day numbers */
+
+.homeos-calendar .fc-daygrid-day-top {
+  padding: 6px;
+  justify-content: flex-start;
+}
+
+.fc-jalali-daynumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+/* Today */
+
+.homeos-calendar .fc-day-today {
+  background: var(--accent) !important;
+}
+
+.homeos-calendar .fc-day-today .fc-jalali-daynumber {
+  background: var(--color-focus);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Events */
+
+.homeos-calendar .fc-event {
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  font-size: var(--text-caption);
+  font-weight: 500;
+}
+
+.homeos-calendar .fc-event:hover {
+  filter: brightness(0.95);
+}
+
+.homeos-calendar .fc-list-event:hover td {
+  background: var(--muted);
+}
+
+.homeos-calendar .fc-list-day-cushion {
+  background: var(--muted) !important;
+}
+
+/* More link */
+
+.homeos-calendar .fc-daygrid-more-link {
+  color: var(--accent-foreground);
+  font-size: var(--text-caption);
+  font-weight: 500;
+}
+
+/* Now indicator */
+
+.homeos-calendar .fc-timegrid-now-indicator-line {
+  border-color: var(--destructive);
+}
+
+.homeos-calendar .fc-timegrid-now-indicator-arrow {
+  border-color: var(--destructive);
+  color: var(--destructive);
+}
