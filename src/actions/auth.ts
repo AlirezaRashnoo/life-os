@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 
 export async function registerUser(data: {
   name: string;
@@ -42,5 +42,11 @@ export async function loginUser(data: { email: string; password: string }) {
     email: data.email,
     password: data.password,
     redirectTo: "/",
+  });
+}
+
+export async function logoutUser() {
+  await signOut({
+    redirectTo: "/login",
   });
 }
