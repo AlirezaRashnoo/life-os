@@ -1,9 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-
 import type { Note } from "@prisma/client";
-
 import { Input } from "@/components/ui/input";
 import EmptyState from "@/components/ui/EmptyState";
 import NewNoteDialog from "./NewNoteDialog";
@@ -56,7 +54,7 @@ export default function NotesPageClient({ notes }: { notes: Note[] }) {
             action={!search ? <NewNoteDialog /> : undefined}
           />
         ) : (
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredNotes.map((note) => (
               <NoteCard key={note.id} note={note} />
             ))}
