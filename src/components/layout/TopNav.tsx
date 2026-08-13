@@ -1,154 +1,19 @@
-// "use client";
-
-// import { useState, useEffect } from "react";
-// import { useTheme } from "next-themes";
-// import { Search, Bell, Sun, Moon } from "lucide-react";
-
-// interface TopNavProps {
-//   userName?: string;
-//   userInitial?: string;
-// }
-
-// export default function TopNav({
-//   userName = "Alireza",
-//   userInitial = "A",
-// }: TopNavProps) {
-//   const { resolvedTheme, setTheme } = useTheme();
-//   const [today, setToday] = useState("");
-
-//   useEffect(() => {
-//     setToday(
-//       new Date().toLocaleDateString("en-US", {
-//         weekday: "long",
-//         month: "long",
-//         day: "numeric",
-//       }),
-//     );
-//   }, []);
-
-//   const toggleTheme = () => {
-//     setTheme(resolvedTheme === "dark" ? "light" : "dark");
-//   };
-
-//   return (
-//     <header
-//       className="
-//         fixed right-60 left-0 top-0 h-18 z-40
-//         border-b border-border-subtle
-//         bg-bg-canvas
-//         flex items-center justify-between
-//         px-6
-//       "
-//     >
-//       {/* Left — Dashboard variant: minimal, just current date (no breadcrumb, root page) */}
-//       <div className="flex items-center">
-//         <span className="text-body text-text-tertiary">{today}</span>
-//       </div>
-
-//       {/* Right — Command palette trigger, notifications, theme toggle, avatar */}
-//       <div className="flex items-center gap-2">
-//         {/* Command Palette trigger — pill-shaped, the one intentional radius exception */}
-//         <button
-//           className="
-//             flex items-center gap-2
-//             h-9 px-3
-//             rounded-full
-//             border border-border-subtle
-//             bg-bg-inset
-//             text-text-tertiary
-//             hover:border-border-strong hover:text-text-secondary
-//             transition-colors duration-150 ease-out
-//           "
-//         >
-//           <Search size={14} strokeWidth={2} />
-//           <span className="text-body-sm">Search or jump to…</span>
-//           <span
-//             className="
-//               ml-2 flex items-center gap-0.5
-//               px-1.5 py-0.5
-//               rounded-sm
-//               border border-border-subtle
-//               bg-surface-1
-//               font-mono text-caption text-text-tertiary
-//             "
-//           >
-//             ⌘K
-//           </span>
-//         </button>
-
-//         {/* Notifications — ghost icon button, square */}
-//         <button
-//           aria-label="Notifications"
-//           className="
-//             h-9 w-9
-//             flex items-center justify-center
-//             rounded-md
-//             text-text-secondary
-//             hover:bg-surface-hover hover:text-text-primary
-//             transition-colors duration-150 ease-out
-//           "
-//         >
-//           <Bell size={18} strokeWidth={2} />
-//         </button>
-
-//         {/* Theme toggle — ghost icon button, square */}
-//         <button
-//           aria-label="Toggle theme"
-//           onClick={toggleTheme}
-//           className="
-//             h-9 w-9
-//             flex items-center justify-center
-//             rounded-md
-//             text-text-secondary
-//             hover:bg-surface-hover hover:text-text-primary
-//             transition-colors duration-150 ease-out
-//           "
-//         >
-//           {resolvedTheme === "dark" ? (
-//             <Sun size={18} strokeWidth={2} />
-//           ) : (
-//             <Moon size={18} strokeWidth={2} />
-//           )}
-//         </button>
-
-//         {/* Divider */}
-//         <div className="h-5 w-px bg-border-subtle mx-1" />
-
-//         {/* Avatar */}
-//         <button
-//           aria-label={`${userName} account menu`}
-//           className="
-//             h-8 w-8
-//             rounded-full
-//             bg-primary-500
-//             flex items-center justify-center
-//             text-caption font-medium text-text-inverse
-//             hover:opacity-90
-//             transition-opacity duration-150 ease-out
-//           "
-//         >
-//           {userInitial}
-//         </button>
-//       </div>
-//     </header>
-//   );
-// }
-
 "use client";
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Search, Bell, Sun, Moon } from "lucide-react";
-import { Button } from "../ui/button";
+import { Search, Bell, Sun, Moon, Menu } from "lucide-react";
 
 interface TopNavProps {
   userName?: string;
   userInitial?: string;
+  onMenuClick?: () => void;
 }
 
 export default function TopNav({
   userName = "علیرضا",
   userInitial = "ع",
+  onMenuClick,
 }: TopNavProps) {
   const { resolvedTheme, setTheme } = useTheme();
   const [today, setToday] = useState("");
@@ -169,36 +34,67 @@ export default function TopNav({
       className="
         fixed
         top-0
-        right-60
+        right-0
         left-0
-        h-18
+        z-20
         flex
+        h-16
         items-center
         justify-between
-        px-6
         border-b
         border-border
-        bg-background
-        z-20
+        bg-background/95
+        px-4
+        backdrop-blur
+        sm:px-6
+        md:right-60
       "
     >
-      <div className="text-sm text-muted-foreground">{today}</div>
-
+      {/* Right side */}
       <div className="flex items-center gap-2">
+        {/* Mobile Menu */}
         <button
+          type="button"
+          onClick={onMenuClick}
+          aria-label="باز کردن منو"
           className="
             flex
+            h-9
+            w-9
+            items-center
+            justify-center
+            rounded-md
+            transition-colors
+            hover:bg-accent
+            md:hidden
+          "
+        >
+          <Menu size={20} />
+        </button>
+
+        {/* Date */}
+        <div className="text-sm text-muted-foreground">{today}</div>
+      </div>
+
+      {/* Left side */}
+      <div className="flex items-center gap-1.5 sm:gap-2">
+        {/* Search */}
+        {/* <button
+          type="button"
+          className="
+            hidden
+            h-9
             items-center
             gap-2
-            h-9
-            px-3
             rounded-full
             border
             border-border
             bg-muted
+            px-3
             text-muted-foreground
-            hover:text-foreground
             transition-colors
+            hover:text-foreground
+            sm:flex
           "
         >
           <Search size={14} />
@@ -217,34 +113,82 @@ export default function TopNav({
           >
             ⌘K
           </span>
+        </button> */}
+
+        {/* Mobile Search */}
+        <button
+          type="button"
+          aria-label="جستجو"
+          className="
+            flex
+            h-9
+            w-9
+            items-center
+            justify-center
+            rounded-md
+            transition-colors
+            hover:bg-accent
+            sm:hidden
+          "
+        >
+          <Search size={18} />
         </button>
 
-        <button className="h-9 w-9 rounded-md">
+        {/* Notifications */}
+        <button
+          type="button"
+          aria-label="اعلان‌ها"
+          className="
+            flex
+            h-9
+            w-9
+            items-center
+            justify-center
+            rounded-md
+            transition-colors
+            hover:bg-accent
+          "
+        >
           <Bell size={18} />
         </button>
 
+        {/* Theme */}
         <button
+          type="button"
+          aria-label="تغییر تم"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
           className="
+            flex
             h-9
             w-9
+            items-center
+            justify-center
             rounded-md
+            transition-colors
+            hover:bg-accent
           "
         >
           {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
-        <div className="h-5 w-px bg-border mx-1" />
+        {/* Separator */}
+        <div className="mx-1 hidden h-5 w-px bg-border sm:block" />
 
+        {/* User */}
         <button
+          type="button"
+          aria-label={`حساب کاربری ${userName}`}
           className="
+            flex
             h-8
             w-8
+            items-center
+            justify-center
             rounded-full
             bg-primary
-            text-primary-foreground
             text-xs
             font-medium
+            text-primary-foreground
           "
         >
           {userInitial}
