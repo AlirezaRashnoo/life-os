@@ -24,7 +24,7 @@ export default function NewTaskDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button>+ کار جدید</Button>
       </DialogTrigger>
 

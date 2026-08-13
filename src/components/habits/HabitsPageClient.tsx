@@ -10,7 +10,6 @@ type Habit = {
   id: string;
   title: string;
   description: string | null;
-  color: string | null;
   icon: string | null;
 
   completions: {

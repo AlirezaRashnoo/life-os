@@ -29,7 +29,7 @@ export default function EditTaskDialog({ task }: { task: Task }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <button
           className="
           h-8
