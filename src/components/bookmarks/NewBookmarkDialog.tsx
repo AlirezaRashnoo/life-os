@@ -40,7 +40,7 @@ export default function NewBookmarkDialog() {
     <Dialog open={open} onOpenChange={setOpen}>
       <Button className="gap-1.5" onClick={() => setOpen(true)}>
         <Plus size={16} />
-        Add bookmark
+        اضافه کردن نشانک
       </Button>
 
       <DialogContent className="sm:max-w-[480px]">
@@ -51,7 +51,7 @@ export default function NewBookmarkDialog() {
         <div className="space-y-4 mt-2">
           <div className="space-y-1.5">
             <label className="text-caption uppercase tracking-wide text-text-tertiary">
-              Title
+              عنوان
             </label>
             <Input
               placeholder="Next.js docs"
@@ -62,7 +62,7 @@ export default function NewBookmarkDialog() {
 
           <div className="space-y-1.5">
             <label className="text-caption uppercase tracking-wide text-text-tertiary">
-              URL
+              لینک
             </label>
             <Input
               placeholder="nextjs.org/docs"
@@ -74,7 +74,7 @@ export default function NewBookmarkDialog() {
 
           <div className="space-y-1.5">
             <label className="text-caption uppercase tracking-wide text-text-tertiary">
-              Description
+              توضیحات
             </label>
             <Textarea
               placeholder="What is this for?"
@@ -86,7 +86,7 @@ export default function NewBookmarkDialog() {
 
         <div className="mt-6 flex justify-end gap-2">
           <Button variant="ghost" onClick={() => setOpen(false)}>
-            Cancel
+            لغو
           </Button>
           <Button
             onClick={handleSubmit}

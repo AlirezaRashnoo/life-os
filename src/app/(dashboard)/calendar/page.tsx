@@ -20,7 +20,6 @@ export default async function CalendarPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-h1 text-text-primary">تقویم</h1>
-
           <p className="text-body text-text-secondary mt-1">
             روزهای تان را برنامه ریزی کنید و منظم باشید
           </p>

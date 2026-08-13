@@ -4,7 +4,7 @@ export default function DashboardGrid({
   children: React.ReactNode;
 }) {
   return (
-    <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 items-stretch gap-6">
       {children}
     </div>
   );

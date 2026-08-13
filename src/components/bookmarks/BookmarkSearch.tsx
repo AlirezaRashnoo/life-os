@@ -18,7 +18,7 @@ export default function BookmarkSearch({
       />
 
       <Input
-        placeholder="Search bookmarks..."
+        placeholder="جستجو نشانک ..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="pl-9 pr-8 text-body"

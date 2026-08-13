@@ -58,14 +58,14 @@ export default function EditBookmarkDialog({
         <div className="space-y-4 mt-2">
           <div className="space-y-1.5">
             <label className="text-caption uppercase tracking-wide text-text-tertiary">
-              Title
+              عنوان
             </label>
             <Input value={title} onChange={(e) => setTitle(e.target.value)} />
           </div>
 
           <div className="space-y-1.5">
             <label className="text-caption uppercase tracking-wide text-text-tertiary">
-              URL
+              لینک
             </label>
             <Input
               value={url}
@@ -76,7 +76,7 @@ export default function EditBookmarkDialog({
 
           <div className="space-y-1.5">
             <label className="text-caption uppercase tracking-wide text-text-tertiary">
-              Description
+              توضیحات
             </label>
             <Textarea
               value={description}
@@ -93,7 +93,7 @@ export default function EditBookmarkDialog({
             onClick={handleSave}
             disabled={!title.trim() || !url.trim() || saving}
           >
-            {saving ? "Saving..." : "Save changes"}
+            {saving ? "ذخیره..." : "ذخیره تغییرات"}
           </Button>
         </div>
       </DialogContent>

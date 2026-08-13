@@ -25,7 +25,7 @@ export default function BookmarkGrid({ bookmarks }: { bookmarks: Bookmark[] }) {
 
         <p className="text-body-sm text-text-tertiary">
           {filteredBookmarks.length}{" "}
-          {filteredBookmarks.length === 1 ? "bookmark" : "bookmarks"}
+          {filteredBookmarks.length === 1 ? "نشانک" : "نشانک ها"}
           {search && ` for "${search}"`}
         </p>
       </div>
@@ -38,7 +38,7 @@ export default function BookmarkGrid({ bookmarks }: { bookmarks: Bookmark[] }) {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredBookmarks.map((bookmark) => (
             <BookmarkCard key={bookmark.id} bookmark={bookmark} />
           ))}

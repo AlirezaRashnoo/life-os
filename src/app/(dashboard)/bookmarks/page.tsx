@@ -62,9 +62,9 @@ export default async function BookmarksPage() {
     <div className="space-y-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-h1 text-text-primary">Bookmarks</h1>
+          <h1 className="text-h1 text-text-primary">نشانک ها</h1>
           <p className="text-body text-text-secondary mt-1">
-            Save and organize useful resources.
+            منابع مفید را ذخیره و سازماندهی کنید.
           </p>
         </div>
 
