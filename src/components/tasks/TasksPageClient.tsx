@@ -82,7 +82,7 @@ export default function TasksPageClient({ tasks }: { tasks: Task[] }) {
           </div>
 
           <div>
-            <h1 className="text-h1 text-foreground">وظیفه‌ها</h1>
+            <h1 className="text-h1 text-foreground">کار‌ها</h1>
             <p className="mt-0.5 text-body-sm text-muted-foreground">
               کارهای خود را مدیریت کنید و متمرکز بمانید.
             </p>
@@ -138,11 +138,11 @@ export default function TasksPageClient({ tasks }: { tasks: Task[] }) {
       {/* LIST */}
       {filteredTasks.length === 0 ? (
         <EmptyState
-          title={search ? "نتیجه‌ای پیدا نشد" : "هنوز وظیفه‌ای ثبت نشده"}
+          title={search ? "نتیجه‌ای پیدا نشد" : "هنوز کار‌ای ثبت نشده"}
           description={
             search
               ? "کلیدواژهٔ دیگری را امتحان کنید."
-              : "اولین وظیفهٔ خود را بسازید و متمرکز بمانید."
+              : "اولین کارٔ خود را بسازید و متمرکز بمانید."
           }
           action={<NewTaskDialog />}
         />

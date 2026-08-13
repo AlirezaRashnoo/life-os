@@ -25,12 +25,12 @@ export default function NewTaskDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button>+ وظیفه جدید</Button>
+        <Button>+ کار جدید</Button>
       </DialogTrigger>
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>ایجاد وظیفه</DialogTitle>
+          <DialogTitle>ایجاد کار</DialogTitle>
         </DialogHeader>
 
         <TaskForm onSave={handleCreate} />

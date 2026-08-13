@@ -36,7 +36,7 @@ export default function TaskFilters({ value, onChange }: TaskFiltersProps) {
           hover:bg-accent/50
         "
       >
-        <SelectValue placeholder="فیلتر وظایف" />
+        <SelectValue placeholder="فیلتر کار ها" />
       </SelectTrigger>
 
       <SelectContent
@@ -45,7 +45,7 @@ export default function TaskFilters({ value, onChange }: TaskFiltersProps) {
           rounded-xl
         "
       >
-        <SelectItem value="ALL">همه وظایف</SelectItem>
+        <SelectItem value="ALL">همه کار ها</SelectItem>
 
         <SelectItem value="PENDING">در انتظار</SelectItem>
 

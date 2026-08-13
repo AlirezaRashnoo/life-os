@@ -49,7 +49,7 @@ export default function TaskForm({
   return (
     <div className="space-y-4">
       <Input
-        placeholder="عنوان وظیفه..."
+        placeholder="عنوان کار..."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />

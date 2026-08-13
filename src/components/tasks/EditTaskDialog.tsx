@@ -54,7 +54,7 @@ export default function EditTaskDialog({ task }: { task: Task }) {
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>ویرایش وظیفه</DialogTitle>
+          <DialogTitle>ویرایش کار</DialogTitle>
         </DialogHeader>
 
         <TaskForm
