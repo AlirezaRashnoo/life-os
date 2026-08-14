@@ -3,7 +3,8 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Eye, EyeOff, Loader2, Command } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+
 import { registerUser } from "@/actions/auth";
 
 export default function RegisterPage() {
@@ -14,6 +15,7 @@ export default function RegisterPage() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     setError(null);
 
     const formData = new FormData(e.currentTarget);
@@ -25,36 +27,59 @@ export default function RegisterPage() {
           email: formData.get("email") as string,
           password: formData.get("password") as string,
         });
-        // router.push("/");
+
+        router.push("/dashboard");
       } catch (err) {
         setError(
           err instanceof Error
             ? err.message
-            : "Something went wrong. Please try again.",
+            : "مشکلی پیش آمد. لطفاً دوباره تلاش کنید.",
         );
       }
     });
   }
 
   return (
-    <div className="min-h-screen w-full bg-bg-canvas flex items-center justify-center px-4">
-      <div className="w-full max-w-[400px]">
-        {/* Wordmark — quiet, no marketing flourish */}
-        <div className="flex items-center justify-center gap-1.5 mb-8">
-          <div className="h-5 w-5 rounded-sm bg-primary-500 flex items-center justify-center">
-            <Command className="h-3 w-3 text-text-inverse" strokeWidth={2.5} />
-          </div>
-          <span className="text-caption font-medium tracking-wide text-text-tertiary uppercase">
+    <div
+      className="
+        min-h-screen
+        flex
+        items-center
+        justify-center
+        bg-background
+        px-4
+      "
+    >
+      <div className="w-full max-w-sm">
+        {/* Brand */}
+        <div className="mb-6 text-center">
+          <span
+            className="
+              text-caption
+              font-medium
+              tracking-wide
+              text-muted-foreground
+            "
+          >
             HomeOS
           </span>
         </div>
 
         {/* Card */}
-        <div className="bg-surface-1 border border-border rounded-lg p-8">
+        <div
+          className="
+            bg-card
+            border
+            border-border
+            rounded-lg
+            p-8
+          "
+        >
           <div className="mb-6">
-            <h1 className="text-h1 text-text-primary">Create your account</h1>
-            <p className="text-body text-text-secondary mt-1">
-              Set up your personal command center.
+            <h1 className="text-h1 text-foreground">ساخت حساب کاربری</h1>
+
+            <p className="text-body text-muted-foreground mt-1">
+              مرکز مدیریت شخصی خود را راه‌اندازی کنید.
             </p>
           </div>
 
@@ -63,51 +88,64 @@ export default function RegisterPage() {
             className="flex flex-col gap-4"
             noValidate
           >
-            <Field label="Name" htmlFor="name">
+            <Field label="نام" htmlFor="name">
               <input
                 id="name"
                 name="name"
                 type="text"
                 autoComplete="name"
-                placeholder="Alex Carter"
+                placeholder="نام و نام خانوادگی"
                 required
                 disabled={isPending}
                 className={inputClass}
               />
             </Field>
 
-            <Field label="Email" htmlFor="email">
+            <Field label="ایمیل" htmlFor="email">
               <input
                 id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
-                placeholder="alex@company.com"
+                placeholder="example@email.com"
                 required
                 disabled={isPending}
                 className={inputClass}
               />
             </Field>
 
-            <Field label="Password" htmlFor="password">
+            <Field label="رمز عبور" htmlFor="password">
               <div className="relative">
                 <input
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
                   autoComplete="new-password"
-                  placeholder="At least 8 characters"
+                  placeholder="حداقل ۸ کاراکتر"
                   required
                   minLength={8}
                   disabled={isPending}
-                  className={`${inputClass} pr-9`}
+                  className={`${inputClass} pl-9`}
                 />
+
                 <button
                   type="button"
-                  onClick={() => setShowPassword((v) => !v)}
+                  onClick={() => setShowPassword((value) => !value)}
                   tabIndex={-1}
-                  className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 flex items-center justify-center rounded-sm text-text-tertiary hover:bg-surface-hover hover:text-text-secondary transition-colors duration-150"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="
+                    absolute
+                    left-1
+                    top-1/2
+                    -translate-y-1/2
+                    h-7
+                    w-7
+                    flex
+                    items-center
+                    justify-center
+                    text-muted-foreground
+                    hover:text-foreground
+                  "
+                  aria-label="نمایش رمز عبور"
                 >
                   {showPassword ? (
                     <EyeOff className="h-3.5 w-3.5" />
@@ -119,37 +157,62 @@ export default function RegisterPage() {
             </Field>
 
             {error && (
-              <div className="flex items-start gap-2 rounded-md border-l-2 border-error-500 bg-error-bg px-3 py-2.5">
-                <p className="text-body-sm text-error-500">{error}</p>
+              <div
+                className="
+                  rounded-md
+                  border-r-2
+                  border-destructive
+                  bg-destructive/10
+                  px-3
+                  py-2.5
+                "
+              >
+                <p className="text-body-sm text-destructive">{error}</p>
               </div>
             )}
 
             <button
               type="submit"
               disabled={isPending}
-              className="mt-1 h-9 w-full rounded-md bg-primary-500 text-body text-text-inverse font-medium
-                         hover:bg-primary-600 active:scale-[0.98]
-                         disabled:opacity-50 disabled:pointer-events-none
-                         transition-all duration-100
-                         flex items-center justify-center gap-2
-                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
+              className="
+                mt-1
+                h-9
+                w-full
+                rounded-md
+                bg-primary
+                text-primary-foreground
+                font-medium
+                flex
+                items-center
+                justify-center
+                gap-2
+                transition
+                hover:opacity-90
+                disabled:opacity-50
+              "
             >
               {isPending ? (
                 <>
                   <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                  Creating account…
+                  در حال ساخت حساب...
                 </>
               ) : (
-                "Create account"
+                "ساخت حساب"
               )}
             </button>
           </form>
         </div>
 
-        <p className="text-body-sm text-text-secondary text-center mt-5">
-          Already have an account?{" "}
-          <Link href="/login" className="text-text-link hover:underline">
-            Sign in
+        <p className="text-body-sm text-muted-foreground text-center mt-5">
+          قبلاً حساب ساخته‌اید؟{" "}
+          <Link
+            href="/login"
+            className="
+              text-primary
+              hover:underline
+            "
+          >
+            ورود به حساب
           </Link>
         </p>
       </div>
@@ -167,20 +230,25 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="space-y-1.5">
       <label
         htmlFor={htmlFor}
-        className="text-body-sm font-medium text-text-secondary"
+        className="
+          text-body-sm
+          text-foreground
+          font-medium
+        "
       >
         {label}
       </label>
+
       {children}
     </div>
   );
 }
 
 const inputClass =
-  "w-full h-9 px-3 rounded-md border border-border bg-surface-1 text-body text-text-primary " +
-  "placeholder:text-text-tertiary outline-none transition-colors duration-150 " +
-  "hover:border-border-strong focus:border-border-focus focus:ring-[3px] focus:ring-primary-100 " +
-  "disabled:bg-bg-inset disabled:text-text-disabled";
+  "w-full h-9 px-3 rounded-md border border-border bg-card text-body text-foreground " +
+  "placeholder:text-muted-foreground outline-none transition-colors duration-150 " +
+  "hover:border-border focus:border-ring focus:ring-[3px] focus:ring-primary/10 " +
+  "disabled:bg-muted disabled:text-muted-foreground";
