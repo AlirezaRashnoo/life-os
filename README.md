@@ -11,28 +11,35 @@ HomeOS is an open-source personal dashboard designed to bring essential daily to
 ## ✨ Features
 
 ### 🌤 Weather
-
 View current weather information directly from your dashboard.
 
 ### 📅 Calendar
-
 Keep track of important dates and manage your schedule.
 
 ### 📝 Notes
-
 Create and manage personal notes, ideas, and reminders.
 
 ### ✅ Todo
-
 Organize your daily tasks and keep track of what needs to be done.
 
 ### 🔗 Bookmarks
-
 Save your favorite links and access frequently used websites quickly from your dashboard.
 
 ### 🔐 Authentication
-
 HomeOS includes a complete authentication system, allowing each user to have their own private workspace and personal data.
+
+---
+
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+### Sign In
+![Sign In](./screenshots/signin.png)
+
+### Habit Tracker
+![Habit](./screenshots/habit.png)
 
 ---
 
