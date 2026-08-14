@@ -2,11 +2,11 @@
 
 > Your personal space for everyday tools.
 
-HomeOS is an open-source personal dashboard designed to bring some of your everyday tools into one simple and organized workspace.
+🌐 Live Demo: https://homeos-neon.vercel.app/
 
-Instead of switching between multiple applications for tasks, notes, weather, and saved links, HomeOS provides a single place to manage your daily information.
+HomeOS is an open-source personal dashboard designed to bring essential daily tools into one simple and organized workspace.
 
----
+## Instead of switching between multiple applications for tasks, notes, calendar, weather, and saved links, HomeOS provides a single place to manage everyday information.
 
 ## ✨ Features
 
