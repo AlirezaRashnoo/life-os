@@ -12,6 +12,7 @@
     "@auth/prisma-adapter": "^2.11.3",
     "@base-ui/react": "^1.6.0",
     "@prisma/client": "^6.19.3",
+    "ai": "^7.0.66",
     "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
