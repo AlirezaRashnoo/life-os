@@ -9,6 +9,7 @@ import WidgetHabitTracker from "@/components/dashboard/WidgetHabitTracker";
 import WidgetWeather from "@/components/dashboard/WidgetWeather";
 // import WidgetAIBrief from "@/components/dashboard/WidgetAIBrief";
 import WidgetNotes from "@/components/dashboard/WidgetNotes";
+import WidgetAIBrief from "@/components/dashboard/WidgetAIBrief";
 
 export default async function Home() {
   const user = await getCurrentUser();
@@ -65,34 +66,35 @@ export default async function Home() {
   ]);
 
   return (
-    <DashboardGrid>
-      {/* <div className="col-span-12">
+    <>
+      <div className="mb-4">
         <WidgetAIBrief />
-      </div> */}
-
-      <div>
-        <WidgetWeather />
       </div>
+      <DashboardGrid>
+        <div>
+          <WidgetWeather />
+        </div>
 
-      <div>
-        <WidgetBookmarks bookmarks={bookmarks} />
-      </div>
+        <div>
+          <WidgetBookmarks bookmarks={bookmarks} />
+        </div>
 
-      <div>
-        <WidgetHabitTracker habits={habits} />
-      </div>
+        <div>
+          <WidgetHabitTracker habits={habits} />
+        </div>
 
-      <div>
-        <WidgetCalendar events={events} />
-      </div>
+        <div>
+          <WidgetCalendar events={events} />
+        </div>
 
-      <div>
-        <WidgetNotes notes={notes} />
-      </div>
+        <div>
+          <WidgetNotes notes={notes} />
+        </div>
 
-      <div>
-        <WidgetTodo tasks={tasks} />
-      </div>
-    </DashboardGrid>
+        <div>
+          <WidgetTodo tasks={tasks} />
+        </div>
+      </DashboardGrid>
+    </>
   );
 }

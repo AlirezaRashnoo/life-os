@@ -4,3 +4,5 @@ export function formatTaskDate(date: Date) {
     day: "numeric",
   }).format(date);
 }
+
+export const USER_TIMEZONE = "Asia/Tehran";
