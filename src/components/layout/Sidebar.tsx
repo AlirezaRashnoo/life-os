@@ -6,10 +6,10 @@ import {
   Calendar,
   Bookmark,
   ListChecks,
-  Settings,
   Bot,
   CircleCheck,
   X,
+  Sparkles,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -46,11 +46,16 @@ const navigation = [
     href: "/tasks",
     icon: ListChecks,
   },
-  // {
-  //   label: "دستیار هوشمند",
-  //   href: "/ai-assistant",
-  //   icon: Bot,
-  // },
+  {
+    label: "گزارش هفتگی",
+    href: "/weekly-review",
+    icon: Sparkles,
+  },
+  {
+    label: "دستیار هوشمند",
+    href: "/ai-chat",
+    icon: Bot,
+  },
 ];
 
 interface SidebarProps {
