@@ -5,13 +5,7 @@ export default function AIChatPage() {
     <main
       dir="rtl"
       className="
-        mx-auto
-        flex
-        h-full
-        w-full
-        max-w-5xl
-        flex-col
-        py-6
+
       "
     >
       <AIChat />

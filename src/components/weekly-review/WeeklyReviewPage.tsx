@@ -74,7 +74,7 @@ export default function WeeklyReviewPage() {
   const { review, statistics } = data;
 
   return (
-    <main dir="rtl" className="mx-auto w-full max-w-6xl space-y-6 py-6">
+    <main dir="rtl" className="mx-auto w-full space-y-6 py-6">
       <style jsx>{`
         @keyframes fade-in-up {
           from {
