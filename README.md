@@ -1,75 +1,191 @@
-# HomeOS
+# 🏠 HomeOS
 
-> Your personal space for everyday tools.
+> Your personal space for everyday tools powered by AI.
 
 🌐 Live Demo: https://homeos-neon.vercel.app/
 
-HomeOS is an open-source personal dashboard designed to bring essential daily tools into one simple and organized workspace.
+HomeOS is an open-source personal productivity dashboard designed to bring essential daily tools into one simple and organized workspace.
 
-## Instead of switching between multiple applications for tasks, notes, calendar, weather, and saved links, HomeOS provides a single place to manage everyday information.
+Instead of switching between multiple applications for tasks, notes, calendar, habits, bookmarks, and productivity tracking, HomeOS provides a single place to manage everyday information.
 
-## ✨ Features
+With AI integration, HomeOS helps users understand their productivity, receive personalized insights, and make better decisions about their daily workflow.
 
-### 🌤 Weather
+---
+
+# ✨ Features
+
+## 🌤 Weather
+
 View current weather information directly from your dashboard.
 
-### 📅 Calendar
-Keep track of important dates and manage your schedule.
+---
 
-### 📝 Notes
-Create and manage personal notes, ideas, and reminders.
+## 📅 Calendar
 
-### ✅ Todo
-Organize your daily tasks and keep track of what needs to be done.
+Manage your schedule, events, and important dates in one place.
 
-### 🔗 Bookmarks
-Save your favorite links and access frequently used websites quickly from your dashboard.
+---
 
-### 🔐 Authentication
+## 📝 Notes
+
+Create and manage personal notes, ideas, reminders, and important information.
+
+---
+
+## ✅ Todo Management
+
+Organize daily tasks with:
+
+- Task creation
+- Priority levels
+- Completion tracking
+- Productivity overview
+
+---
+
+## 🔗 Bookmarks
+
+Save your favorite links and quickly access frequently used websites from your dashboard.
+
+---
+
+## 🔥 Habit Tracker
+
+Track your habits and monitor consistency over time.
+
+Features include:
+
+- Habit creation
+- Daily completion tracking
+- Progress monitoring
+
+---
+
+## 🤖 AI Assistant
+
+AI is a core part of HomeOS, designed to act as a personal productivity assistant.
+
+The AI assistant understands the user's productivity context, including:
+
+- Tasks
+- Habits
+- Events
+- Notes
+
+and can provide personalized answers and recommendations.
+
+Examples:
+
+```
+What should I focus on this week?
+
+Which tasks need my attention?
+
+How can I improve my productivity?
+```
+
+---
+
+## 📊 AI Weekly Review
+
+HomeOS can generate an intelligent weekly review based on real user activity.
+
+The AI analyzes:
+
+- Completed tasks
+- Pending tasks
+- Habits
+- Events
+- Notes
+
+and provides:
+
+- Weekly summary
+- Achievements
+- Areas needing attention
+- Productivity insights
+- Recommendations for the next week
+
+---
+
+## 🔐 Authentication
+
 HomeOS includes a complete authentication system, allowing each user to have their own private workspace and personal data.
 
 ---
 
-## 📸 Screenshots
+# 📸 Screenshots
 
-### Dashboard
-![Dashboard](./screenshots/dashboard.png)
+## Dashboard
 
-### Sign In
+![Dashboard](./screenshots/dashboard-dark.png)
+
+## Dashboard
+
+![Dashboard](./screenshots/dashboard-light.png)
+
+## Sign In
+
 ![Sign In](./screenshots/signin.png)
 
-### Habit Tracker
-![Habit](./screenshots/habit.png)
+## Habit Tracker
+
+![Habit Tracker](./screenshots/habit.png)
+
+## AI Chat
+
+![AI Chat](./screenshots/ai-chat.png)
 
 ---
 
-## 🎯 Why HomeOS?
+# 🎯 Why HomeOS?
 
 People often use multiple applications every day:
 
-- Calendar
-- Todo apps
-- Notes
+- Calendar applications
+- Todo managers
+- Notes apps
 - Weather websites
 - Bookmark managers
+- Productivity tools
 
-HomeOS combines these essential tools into one simple dashboard.
+HomeOS combines these essential tools into one organized dashboard.
 
-Simple. Fast. Organized.
+The goal is to create a simple digital workspace where users can manage their daily life and use AI to make smarter productivity decisions.
+
+Simple. Fast. Intelligent.
 
 ---
 
-## 🧩 Architecture
+# 🧩 Architecture
 
 HomeOS is built as a modular dashboard application where each feature is separated into its own module.
 
-This approach keeps the project maintainable and makes adding new features easier in the future.
+The project follows a layered architecture:
+
+```
+UI
+ ↓
+Components
+ ↓
+API Routes
+ ↓
+Services
+ ↓
+Context Builders
+ ↓
+AI Layer
+ ↓
+Database
+```
+
+AI functionality is separated into dedicated services, context collectors, and prompt builders to keep the system maintainable and scalable.
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
-### Prerequisites
+## Prerequisites
 
 Make sure you have:
 
@@ -77,7 +193,7 @@ Make sure you have:
 - npm or pnpm
 - PostgreSQL database
 
-### Installation
+## Installation
 
 Clone the repository:
 
@@ -97,7 +213,7 @@ Install dependencies:
 npm install
 ```
 
-Create your environment variables:
+Create environment variables:
 
 ```bash
 cp .env.example .env
@@ -115,7 +231,7 @@ Start the development server:
 npm run dev
 ```
 
-Open your browser:
+Open:
 
 ```
 http://localhost:3000
@@ -123,32 +239,47 @@ http://localhost:3000
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
 Built with:
 
 - Next.js
 - TypeScript
+- React
 - Tailwind CSS
 - Prisma ORM
 - PostgreSQL
+- OpenRouter AI API
+- Zod
 
 ---
 
-## 🗺 Roadmap
+# 🗺 Roadmap
 
-### Completed
+## Completed
 
 - [x] Weather dashboard
 - [x] Calendar
-- [x] Notes
+- [x] Notes management
 - [x] Todo management
 - [x] Bookmark management
+- [x] Habit tracking
 - [x] User authentication
+- [x] AI Chat assistant
+- [x] AI Weekly Review
+
+## Future
+
+- [ ] AI daily planning
+- [ ] Long-term AI memory
+- [ ] Smart task prioritization
+- [ ] Voice assistant
+- [ ] Advanced productivity analytics
+- [ ] More AI-powered automation
 
 ---
 
-## 🤝 Contributing
+# 🤝 Contributing
 
 Contributions are welcome!
 
@@ -157,15 +288,20 @@ You can help by:
 - Reporting bugs
 - Suggesting improvements
 - Improving documentation
+- Adding new features
 
 Feel free to open an issue or submit a pull request.
 
 ---
 
-## 📜 License
+# 📜 License
 
 HomeOS is open-source software licensed under the MIT License.
 
 ---
 
-Made with ❤️ for people who want a simpler digital workspace.
+# 👨‍💻 Developer
+
+Built with ❤️ by **Alireza Rashnoo**
+
+HomeOS is an attempt to create a simpler and smarter digital workspace where productivity tools and AI work together.
