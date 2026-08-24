@@ -2,7 +2,7 @@
 
 > Your personal space for everyday tools powered by AI.
 
-🌐 Live Demo: https://homeos-neon.vercel.app/
+🌐 Live Demo: https://home-os-ruddy.vercel.app/
 
 HomeOS is an open-source personal productivity dashboard designed to bring essential daily tools into one simple and organized workspace.
 
