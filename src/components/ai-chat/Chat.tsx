@@ -145,7 +145,7 @@ export default function AIChat() {
               />
 
               <p className="text-body-sm text-muted-foreground">
-                از من درباره برنامه‌ریزی، کارها یا بهره‌وری بپرسید.
+                من اینجام تا برای کارها و برنامه‌هات راهنماییت کنم...
               </p>
             </div>
           </div>

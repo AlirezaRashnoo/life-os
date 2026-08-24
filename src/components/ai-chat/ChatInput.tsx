@@ -36,7 +36,7 @@ export default function AIChatInput({ onSend, disabled = false }: Props) {
           onChange={(event) => setValue(event.target.value)}
           onKeyDown={handleKeyDown}
           disabled={disabled}
-          placeholder="پیام خود را بنویسید..."
+          placeholder="در مورد برنامه‌ریزی، کارها یا عادت‌هات بپرس..."
           className="
             flex-1
             bg-transparent
