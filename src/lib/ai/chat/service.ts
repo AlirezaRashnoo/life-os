@@ -11,8 +11,7 @@ export async function generateAIChatResponse(userId: string, message: string) {
   const prompt = buildAIChatPrompt(context, message);
 
   const response = await generateAI({
-    // model: "minimax/minimax-m2.7:free",
-    model: "nvidia/nemotron-3.5-lightning:free",
+    model: "minimax/minimax-m2.7:free",
 
     temperature: 0.3,
 

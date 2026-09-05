@@ -16,7 +16,7 @@ export async function generateMorningBrief(userId: string) {
   const prompt = buildMorningBriefPrompt(context);
 
   const content = await generateAI({
-    model: "openai/gpt-4o-mini",
+    model: "minimax/minimax-m2.7:free",
     temperature: 0.2,
     messages: [
       {
