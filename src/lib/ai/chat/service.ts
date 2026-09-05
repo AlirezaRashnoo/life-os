@@ -11,10 +11,9 @@ export async function generateAIChatResponse(userId: string, message: string) {
   const prompt = buildAIChatPrompt(context, message);
 
   const response = await generateAI({
-    model: "openai/gpt-4o-mini",
+    model: "openai/gpt-oss-120b:free",
 
     temperature: 0.3,
-
     messages: [
       {
         role: "system",
