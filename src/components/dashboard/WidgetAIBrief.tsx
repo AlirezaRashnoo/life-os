@@ -81,7 +81,7 @@ export default async function WidgetAIBrief() {
             <Sparkles size={15} className="mt-0.5 shrink-0 text-ai" />
 
             <div className="min-w-0">
-              <p className="text-caption font-medium text-ai">پیشنهاد HomeOS</p>
+              <p className="text-caption font-medium text-ai">پیشنهاد LifeOS</p>
 
               <p className="mt-0.5 text-body-sm leading-6 text-foreground">
                 {brief.recommendation}

@@ -106,7 +106,7 @@ export default function AIChat() {
         </div>
 
         <div>
-          <h1 className="text-h3">دستیار هوشمند HomeOS</h1>
+          <h1 className="text-h3">دستیار هوشمند LifeOS</h1>
 
           <p className="text-caption text-muted-foreground">
             کمک به برنامه‌ریزی، تحلیل و تصمیم‌گیری

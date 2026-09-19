@@ -48,7 +48,7 @@ export async function generateAI({
       "HTTP-Referer":
         process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
 
-      "X-Title": "HomeOS",
+      "X-Title": "LifeOS",
     },
 
     body: JSON.stringify({

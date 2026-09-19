@@ -15,8 +15,8 @@ const jbmono = JetBrains_Mono({
   variable: "--font-jbmono",
 });
 export const metadata: Metadata = {
-  title: "HomeOS",
-  description: "HomeOs",
+  title: "LifeOS",
+  description: "LifeOS",
 };
 
 export default function RootLayout({

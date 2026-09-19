@@ -145,7 +145,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
     <div className="flex h-full flex-col">
       {/* Header */}
       <div className="mb-8 flex items-center justify-between px-3">
-        <h1 className="text-lg font-semibold">HomeOS</h1>
+        <h1 className="text-lg font-semibold">LifeOS</h1>
 
         {onNavigate && (
           <button

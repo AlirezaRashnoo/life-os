@@ -19,7 +19,7 @@ function getWeekRange() {
 
   const { year, month, day } = getLocalDateParts(now);
 
-  // HomeOS week starts on Saturday.
+  // LifeOS week starts on Saturday.
   const localToday = new Date(Date.UTC(year, month - 1, day));
 
   const dayOfWeek = localToday.getUTCDay();

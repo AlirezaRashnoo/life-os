@@ -9,7 +9,7 @@ export default function WeeklyReviewSkeleton() {
         </div>
 
         <p className="text-body-sm text-muted-foreground">
-          HomeOS در حال تحلیل هفته شماست...
+          LifeOS در حال تحلیل هفته شماست...
         </p>
       </div>
 

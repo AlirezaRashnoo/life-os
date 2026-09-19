@@ -27,7 +27,7 @@ type ChatContext = {
 
 export function buildAIChatPrompt(context: ChatContext, userMessage: string) {
   return `
-تو دستیار هوشمند HomeOS هستی.
+تو دستیار هوشمند LifeOS هستی.
 
 وظیفه تو کمک به کاربر برای مدیریت:
 - کارها

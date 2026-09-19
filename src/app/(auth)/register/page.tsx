@@ -61,7 +61,7 @@ export default function RegisterPage() {
               text-muted-foreground
             "
           >
-            HomeOS
+            LifeOS
           </span>
         </div>
 

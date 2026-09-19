@@ -16,13 +16,13 @@ export async function generateMorningBrief(userId: string) {
   const prompt = buildMorningBriefPrompt(context);
 
   const content = await generateAI({
-    model: "minimax/minimax-m2.7:free",
+    model: "openrouter/free",
     temperature: 0.2,
     messages: [
       {
         role: "system",
         content:
-          "You are the HomeOS Morning Brief analyst. Return only valid JSON according to the requested schema. Never invent information. Keep user-created titles exactly unchanged.",
+          "You are the LifeOS Morning Brief analyst. Return only valid JSON according to the requested schema. Never invent information. Keep user-created titles exactly unchanged.",
       },
       {
         role: "user",

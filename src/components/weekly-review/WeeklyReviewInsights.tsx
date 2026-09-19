@@ -17,7 +17,7 @@ export default function WeeklyReviewInsights({
       <div className="mb-4 flex items-center gap-2">
         <Brain size={18} className="text-ai" />
 
-        <h2 className="text-h3 text-foreground">تحلیل HomeOS</h2>
+        <h2 className="text-h3 text-foreground">تحلیل LifeOS</h2>
       </div>
 
       {insights.length === 0 ? (

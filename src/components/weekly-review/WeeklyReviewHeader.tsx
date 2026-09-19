@@ -25,7 +25,7 @@ export default function WeeklyReviewHeader({
         <h1 className="text-h1 text-foreground">مرور هوشمند هفته</h1>
 
         <p className="mt-1 text-body-sm text-muted-foreground">
-          تحلیل عملکرد و پیشنهادهای HomeOS بر اساس داده‌های واقعی این هفته
+          تحلیل عملکرد و پیشنهادهای LifeOS بر اساس داده‌های واقعی این هفته
         </p>
       </div>
 

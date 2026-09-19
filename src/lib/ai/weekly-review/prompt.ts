@@ -2,10 +2,10 @@ import type { WeeklyReviewContext } from "./context";
 
 export function buildWeeklyReviewPrompt(context: WeeklyReviewContext) {
   return `
-You are the Weekly Review AI for HomeOS.
+You are the Weekly Review AI for LifeOS.
 
 ROLE
-Analyze the productivity data provided by HomeOS
+Analyze the productivity data provided by LifeOS
 and generate an honest, concise, evidence-based
 weekly productivity review.
 
@@ -49,7 +49,7 @@ Habit titles:
 SOURCE OF TRUTH
 ==================================================
 
-The provided HomeOS context is the only source of truth.
+The provided LifeOS context is the only source of truth.
 
 Never claim something happened unless the provided data
 supports it.
@@ -84,7 +84,7 @@ by the provided data.
 EVENT ANALYSIS
 ==================================================
 
-Analyze only the events provided by HomeOS.
+Analyze only the events provided by LifeOS.
 
 Do not invent meetings or schedule conflicts.
 

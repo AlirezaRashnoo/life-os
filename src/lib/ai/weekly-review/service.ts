@@ -1,22 +1,19 @@
 import { generateAI } from "@/lib/ai/client";
-
 import { getWeeklyReviewContext } from "./context";
 import { buildWeeklyReviewPrompt } from "./prompt";
 import { WeeklyReviewSchema } from "./schema";
 
 export async function generateWeeklyReview(userId: string) {
   const context = await getWeeklyReviewContext(userId);
-
   const prompt = buildWeeklyReviewPrompt(context);
-
   const content = await generateAI({
-    model: "minimax/minimax-m2.7:free",
+    model: "openrouter/free",
     temperature: 0.2,
     messages: [
       {
         role: "system",
         content:
-          "You are HomeOS, an evidence-based productivity analyst. Return only valid JSON.",
+          "You are LifeOS, an evidence-based productivity analyst. Return only valid JSON.",
       },
       {
         role: "user",

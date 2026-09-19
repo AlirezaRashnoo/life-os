@@ -59,7 +59,7 @@ export default function LoginPage() {
               text-muted-foreground
             "
           >
-            HomeOS
+            LifeOS
           </span>
         </div>
 
