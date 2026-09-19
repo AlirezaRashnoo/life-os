@@ -1,10 +1,10 @@
-# 🏠 HomeOS
+# 🏠 LifeOS
 
 > Your personal space for everyday tools powered by AI.
 
-🌐 Live Demo: https://home-os-ruddy.vercel.app/
+🌐 Live Demo: https://mylife-os-nine.vercel.app/
 
-HomeOS is an open-source personal productivity dashboard designed to bring essential daily tools into one simple and organized workspace.
+LifeOS is an open-source personal productivity dashboard designed to bring essential daily tools into one simple and organized workspace.
 
 Instead of switching between multiple applications for tasks, notes, calendar, habits, bookmarks, and productivity tracking, HomeOS provides a single place to manage everyday information.
 
@@ -138,7 +138,7 @@ HomeOS includes a complete authentication system, allowing each user to have the
 
 ---
 
-# 🎯 Why HomeOS?
+# 🎯 Why LifeOS?
 
 People often use multiple applications every day:
 
@@ -149,7 +149,7 @@ People often use multiple applications every day:
 - Bookmark managers
 - Productivity tools
 
-HomeOS combines these essential tools into one organized dashboard.
+LifeOS combines these essential tools into one organized dashboard.
 
 The goal is to create a simple digital workspace where users can manage their daily life and use AI to make smarter productivity decisions.
 
@@ -159,7 +159,7 @@ Simple. Fast. Intelligent.
 
 # 🧩 Architecture
 
-HomeOS is built as a modular dashboard application where each feature is separated into its own module.
+LifeOS is built as a modular dashboard application where each feature is separated into its own module.
 
 The project follows a layered architecture:
 
@@ -198,7 +198,7 @@ Make sure you have:
 Clone the repository:
 
 ```bash
-git clone https://github.com/AlirezaRashnoo/home-os.git
+git clone https://github.com/AlirezaRashnoo/life-os.git
 ```
 
 Go to the project directory:
@@ -296,7 +296,7 @@ Feel free to open an issue or submit a pull request.
 
 # 📜 License
 
-HomeOS is open-source software licensed under the MIT License.
+LifeOS is open-source software licensed under the MIT License.
 
 ---
 
@@ -304,4 +304,4 @@ HomeOS is open-source software licensed under the MIT License.
 
 Built with ❤️ by **Alireza Rashnoo**
 
-HomeOS is an attempt to create a simpler and smarter digital workspace where productivity tools and AI work together.
+LifeOS is an attempt to create a simpler and smarter digital workspace where productivity tools and AI work together.
